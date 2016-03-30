@@ -1,0 +1,73 @@
+apply plugin: 'com.android.application'
+
+//  代码分为3个部分，分别是删除，拷贝，以及将其连接起来的一个设置。
+task clearApk(type: Delete) {
+    delete '../release/' + POM_ARTIFACT_ID + '_' + VERSION_NAME + '.apk'
+}
+
+task makeApk(type: Copy) {
+    from('build/outputs/apk/')
+    into('../release/')
+    include('app-release-unaligned.apk')
+    rename('app-release-unaligned.apk', POM_ARTIFACT_ID + '_' + VERSION_NAME + '.apk')
+}
+makeApk.dependsOn(clearApk, build)
+
+android {
+    signingConfigs {
+        myapp {
+            keyAlias 'myapp'
+            keyPassword '123456'
+            storeFile file('D:/myapplication.jks')
+            storePassword '123456'
+        }
+    }
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+    defaultConfig {
+        applicationId "com.example.xwqaa.myapplication"
+        minSdkVersion 17
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        signingConfig signingConfigs.myapp
+    }
+    // 签名配置
+    /*signingConfigs {
+        release {
+            storeFile file('release.keystore')
+            storePassword "yourstorepassword"
+            keyAlias "yourkeyalias"
+            keyPassword "yourkeypassword"
+        }
+        debug {
+            storeFile file('debug.keystore')
+        }
+    }*/
+    // 编译配置
+    buildTypes {
+        release {
+            // 是否去除无用的资源
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            // 对应上面签名的引用
+            // signingConfig signingConfigs.release
+            signingConfig signingConfigs.myapp
+            zipAlignEnabled true
+        }
+        /*debug {
+            signingConfig signingConfigs.debug
+        }*/
+    }
+    productFlavors {
+    }
+    sourceSets { main { jni.srcDirs = ['src/main/jni', 'src/main/jni/test'] } }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.2.0'
+    compile 'com.android.support:design:23.2.0'
+    compile 'com.google.android.gms:play-services-appindexing:8.1.0'
+}

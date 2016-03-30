@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.xwqaa.myapplication.MainActivity"
+    android:transitionGroup="true"
+    android:stateListAnimator="@drawable/abc_btn_rating_star_off_mtrl_alpha"
+    android:textAlignment="viewStart">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        android:id="@+id/textView2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/abc_capital_off"
+        android:id="@+id/textView"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src="@mipmap/ic_launcher"
+        android:layout_alignBottom="@+id/textView"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_toEndOf="12"
+        android:layout_toStartOf="111"
+        style="@android:style/MediaButton"
+        android:longClickable="true" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/progressBar"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/listView"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:paddingTop="12dp"
+        android:scrollIndicators="left|right"
+        android:layout_toLeftOf="@+id/imageView"
+        android:clickable="false"
+        android:indeterminate="false"
+        android:indeterminateOnly="false"
+        android:longClickable="false"
+        android:max="100"
+        android:nestedScrollingEnabled="false"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_margin="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_alignParentEnd="true" />
+
+    <ExpandableListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listView"
+        android:background="#f80e0e"
+        android:accessibilityTraversalAfter="@integer/abc_config_activityShortDur"
+        android:paddingLeft="11dp"
+        android:textAlignment="textEnd"
+        android:textFilterEnabled="true"
+        android:transitionGroup="true"
+        android:alpha="100%"
+        android:clickable="false"
+        android:headerDividersEnabled="true"
+        android:overScrollFooter="@android:drawable/button_onoff_indicator_on"
+        android:layout_gravity="center"
+        android:layout_alignTop="@+id/progressBar"
+        android:layout_alignEnd="@+id/imageView"
+        android:layout_marginEnd="15dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SXSSSS"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/imageView"
+        android:layout_alignEnd="@+id/listView"
+        android:inputType="date|phone|text"
+        android:background="#f90606"
+        android:password="true"
+        android:phoneNumber="true"
+        android:width="122dp" />
+
+</RelativeLayout>
