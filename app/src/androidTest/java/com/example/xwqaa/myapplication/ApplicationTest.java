@@ -8,6 +8,6 @@ import android.test.ApplicationTestCase;
  */
 public class ApplicationTest extends ApplicationTestCase<Application> {
     public ApplicationTest() {
-        super(Application.class);//cegjid adafdja fla
+        super(Application.class);//cegjid反反复复反反复复 adafdja fla
     }
 }
