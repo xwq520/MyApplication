@@ -8,6 +8,9 @@ import android.test.ApplicationTestCase;
  */
 public class ApplicationTest extends ApplicationTestCase<Application> {
     public ApplicationTest() {
-        super(Application.class);//cddd大飒飒的答复的撒大egjid反反复复反反复复 adafdja fla
+        super(Application.class);
+
+
+        //cddd大飒飒的答复的撒大egjid反反复复反反复复 adafdja fla
     }
 }
