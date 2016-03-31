@@ -11,6 +11,7 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
         super(Application.class);//
         // cddd大飒飒的答复的撒大egjid反反复复反反复复
         // adafdja fla
-        // jljljl
+        // jljljlxcasd adfsad啊是fdadad
+        // Debug模式下的
     }
 }
